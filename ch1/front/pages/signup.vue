@@ -51,6 +51,7 @@
 
 <script>
   export default {
+    middleware: "anonymous",
     data () {
       return {
         valid: false,
@@ -75,6 +76,25 @@
         ]
       }
     },
+    head() {
+      return {
+        title : 'Signup'
+      }
+    },
+    computed: {
+      me() {
+        return this.$store.state.users.me
+      }
+    },
+    watch: {
+      me(val, oldVal) {
+        if(val) {
+          this.$router.push({
+            path: '/'
+          })
+        }
+      }
+    },
     methods: {
       onSubmitForm() {
         if(this.$refs.form.validate()) {
@@ -93,11 +113,6 @@
         }
       }
     },
-    head() {
-      return {
-        title : 'Signup'
-      }
-    }
   }
 
 </script>

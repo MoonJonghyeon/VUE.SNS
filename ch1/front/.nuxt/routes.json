@@ -2,19 +2,43 @@
   {
     "name": "profile",
     "path": "/profile",
-    "component": "C:\\\\Users\\\\com\\\\vue강좌\\\\vue중급\\\\ch1\\\\front\\\\pages\\\\profile.vue",
-    "chunkName": "pages/profile"
+    "component": "C:\\\\Users\\\\com\\\\vue강좌\\\\vuesns\\\\ch1\\\\front\\\\pages\\\\profile.vue",
+    "chunkName": "pages/profile",
+    "_name": "_cbd7743a"
   },
   {
     "name": "signup",
     "path": "/signup",
-    "component": "C:\\\\Users\\\\com\\\\vue강좌\\\\vue중급\\\\ch1\\\\front\\\\pages\\\\signup.vue",
-    "chunkName": "pages/signup"
+    "component": "C:\\\\Users\\\\com\\\\vue강좌\\\\vuesns\\\\ch1\\\\front\\\\pages\\\\signup.vue",
+    "chunkName": "pages/signup",
+    "_name": "_0234f564"
+  },
+  {
+    "name": "hashtag-id",
+    "path": "/hashtag/:id",
+    "component": "C:\\\\Users\\\\com\\\\vue강좌\\\\vuesns\\\\ch1\\\\front\\\\pages\\\\hashtag\\\\_id\\\\index.vue",
+    "chunkName": "pages/hashtag/_id/index",
+    "_name": "_ef62e144"
+  },
+  {
+    "name": "post-id",
+    "path": "/post/:id",
+    "component": "C:\\\\Users\\\\com\\\\vue강좌\\\\vuesns\\\\ch1\\\\front\\\\pages\\\\post\\\\_id\\\\index.vue",
+    "chunkName": "pages/post/_id/index",
+    "_name": "_923dbda4"
+  },
+  {
+    "name": "user-id",
+    "path": "/user/:id",
+    "component": "C:\\\\Users\\\\com\\\\vue강좌\\\\vuesns\\\\ch1\\\\front\\\\pages\\\\user\\\\_id\\\\index.vue",
+    "chunkName": "pages/user/_id/index",
+    "_name": "_1265be59"
   },
   {
     "name": "index",
     "path": "/",
-    "component": "C:\\\\Users\\\\com\\\\vue강좌\\\\vue중급\\\\ch1\\\\front\\\\pages\\\\index.vue",
-    "chunkName": "pages/index"
+    "component": "C:\\\\Users\\\\com\\\\vue강좌\\\\vuesns\\\\ch1\\\\front\\\\pages\\\\index.vue",
+    "chunkName": "pages/index",
+    "_name": "_0beb6de8"
   }
 ]
