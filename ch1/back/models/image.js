@@ -1,0 +1,16 @@
+module.exports = (sequelize, DataTypes) => {
+    const Image = sequelize.define('Image', {
+        email: {
+            type: DataTypes.STRING(200),
+            allowNull: false,
+            unique: true,
+        },
+    }, {
+        charset: 'utf8',
+        collate: 'utf8_general_ci'
+    });
+    Image.associate = (db) => {
+        db.Image.belongsTo(db.Post)
+    };
+    return Image
+}
