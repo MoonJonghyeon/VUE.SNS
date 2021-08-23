@@ -2,43 +2,43 @@
   {
     "name": "profile",
     "path": "/profile",
-    "component": "C:\\\\Users\\\\com\\\\vue강좌\\\\vuesns\\\\ch1\\\\front\\\\pages\\\\profile.vue",
+    "component": "C:\\\\Users\\\\moonj\\\\OneDrive\\\\문서\\\\test-project\\\\vuesns\\\\VUE.SNS\\\\ch1\\\\front\\\\pages\\\\profile.vue",
     "chunkName": "pages/profile",
-    "_name": "_cbd7743a"
+    "_name": "_73de07c4"
   },
   {
     "name": "signup",
     "path": "/signup",
-    "component": "C:\\\\Users\\\\com\\\\vue강좌\\\\vuesns\\\\ch1\\\\front\\\\pages\\\\signup.vue",
+    "component": "C:\\\\Users\\\\moonj\\\\OneDrive\\\\문서\\\\test-project\\\\vuesns\\\\VUE.SNS\\\\ch1\\\\front\\\\pages\\\\signup.vue",
     "chunkName": "pages/signup",
-    "_name": "_0234f564"
+    "_name": "_7848f966"
   },
   {
     "name": "hashtag-id",
     "path": "/hashtag/:id",
-    "component": "C:\\\\Users\\\\com\\\\vue강좌\\\\vuesns\\\\ch1\\\\front\\\\pages\\\\hashtag\\\\_id\\\\index.vue",
+    "component": "C:\\\\Users\\\\moonj\\\\OneDrive\\\\문서\\\\test-project\\\\vuesns\\\\VUE.SNS\\\\ch1\\\\front\\\\pages\\\\hashtag\\\\_id\\\\index.vue",
     "chunkName": "pages/hashtag/_id/index",
-    "_name": "_ef62e144"
+    "_name": "_65a787bf"
   },
   {
     "name": "post-id",
     "path": "/post/:id",
-    "component": "C:\\\\Users\\\\com\\\\vue강좌\\\\vuesns\\\\ch1\\\\front\\\\pages\\\\post\\\\_id\\\\index.vue",
+    "component": "C:\\\\Users\\\\moonj\\\\OneDrive\\\\문서\\\\test-project\\\\vuesns\\\\VUE.SNS\\\\ch1\\\\front\\\\pages\\\\post\\\\_id\\\\index.vue",
     "chunkName": "pages/post/_id/index",
-    "_name": "_923dbda4"
+    "_name": "_3be62726"
   },
   {
     "name": "user-id",
     "path": "/user/:id",
-    "component": "C:\\\\Users\\\\com\\\\vue강좌\\\\vuesns\\\\ch1\\\\front\\\\pages\\\\user\\\\_id\\\\index.vue",
+    "component": "C:\\\\Users\\\\moonj\\\\OneDrive\\\\문서\\\\test-project\\\\vuesns\\\\VUE.SNS\\\\ch1\\\\front\\\\pages\\\\user\\\\_id\\\\index.vue",
     "chunkName": "pages/user/_id/index",
-    "_name": "_1265be59"
+    "_name": "_3d918998"
   },
   {
     "name": "index",
     "path": "/",
-    "component": "C:\\\\Users\\\\com\\\\vue강좌\\\\vuesns\\\\ch1\\\\front\\\\pages\\\\index.vue",
+    "component": "C:\\\\Users\\\\moonj\\\\OneDrive\\\\문서\\\\test-project\\\\vuesns\\\\VUE.SNS\\\\ch1\\\\front\\\\pages\\\\index.vue",
     "chunkName": "pages/index",
-    "_name": "_0beb6de8"
+    "_name": "_216d0f2d"
   }
 ]

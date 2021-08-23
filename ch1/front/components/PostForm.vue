@@ -17,6 +17,14 @@
             <v-btn type="submit" color="green" absolute right>짹짹</v-btn>
             <input ref="imageInput" type="file" multiple hidden @change="onChangeImage">
             <v-btn @click="onClickImageUpload" type="button">이미지 업로드</v-btn>
+            <div>
+                <div v-for="p in imagePaths" :key="p" style="display: inline-block">
+                    <img :src="`http://localhost:3085/${p}`" :alt="p" style="width: 200px">
+                    <div>
+                        <button @click="onRemoveImage(f)" type="button">remove</button>
+                    </div>
+                </div>
+            </div>
             </v-form>
         </v-container>
     </v-card>
@@ -35,7 +43,8 @@ export default {
         }
     },
     computed: {
-        ...mapState('users', ['me'])
+        ...mapState('users', ['me']),
+        ...mapState('posts', ['imagePaths'])
     },
     methods: {
         onChangeTextarea(value) {
@@ -73,7 +82,15 @@ export default {
         },
         onChangeImage(e) {
             console.log(e.target.files);
+            const imageFormData = new FormData();
+            [].forEach.call(e.target.files, (f) => {
+                imageFormData.append('image', f)
+            })
+            this.$store.dispatch('posts/uploadImages', imageFormData)
         },
+        onRemoveImage(index) {
+            this.$store.commit('posts/removeImagePaths', index)
+        }
     }
 }
 </script>

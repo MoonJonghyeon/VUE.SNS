@@ -4,12 +4,12 @@ import { normalizeURL, decode } from 'ufo'
 import { interopDefault } from './utils'
 import scrollBehavior from './router.scrollBehavior.js'
 
-const _cbd7743a = () => interopDefault(import('..\\pages\\profile.vue' /* webpackChunkName: "pages/profile" */))
-const _0234f564 = () => interopDefault(import('..\\pages\\signup.vue' /* webpackChunkName: "pages/signup" */))
-const _ef62e144 = () => interopDefault(import('..\\pages\\hashtag\\_id\\index.vue' /* webpackChunkName: "pages/hashtag/_id/index" */))
-const _923dbda4 = () => interopDefault(import('..\\pages\\post\\_id\\index.vue' /* webpackChunkName: "pages/post/_id/index" */))
-const _1265be59 = () => interopDefault(import('..\\pages\\user\\_id\\index.vue' /* webpackChunkName: "pages/user/_id/index" */))
-const _0beb6de8 = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages/index" */))
+const _73de07c4 = () => interopDefault(import('..\\pages\\profile.vue' /* webpackChunkName: "pages/profile" */))
+const _7848f966 = () => interopDefault(import('..\\pages\\signup.vue' /* webpackChunkName: "pages/signup" */))
+const _65a787bf = () => interopDefault(import('..\\pages\\hashtag\\_id\\index.vue' /* webpackChunkName: "pages/hashtag/_id/index" */))
+const _3be62726 = () => interopDefault(import('..\\pages\\post\\_id\\index.vue' /* webpackChunkName: "pages/post/_id/index" */))
+const _3d918998 = () => interopDefault(import('..\\pages\\user\\_id\\index.vue' /* webpackChunkName: "pages/user/_id/index" */))
+const _216d0f2d = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages/index" */))
 
 const emptyFn = () => {}
 
@@ -24,27 +24,27 @@ export const routerOptions = {
 
   routes: [{
     path: "/profile",
-    component: _cbd7743a,
+    component: _73de07c4,
     name: "profile"
   }, {
     path: "/signup",
-    component: _0234f564,
+    component: _7848f966,
     name: "signup"
   }, {
     path: "/hashtag/:id",
-    component: _ef62e144,
+    component: _65a787bf,
     name: "hashtag-id"
   }, {
     path: "/post/:id",
-    component: _923dbda4,
+    component: _3be62726,
     name: "post-id"
   }, {
     path: "/user/:id",
-    component: _1265be59,
+    component: _3d918998,
     name: "user-id"
   }, {
     path: "/",
-    component: _0beb6de8,
+    component: _216d0f2d,
     name: "index"
   }],
 
