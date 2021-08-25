@@ -51,19 +51,20 @@ export const mutations = {
     }
 }
 export const actions = {
-    loadUser({commit}) {
-        this.$axios.get('http://localhost:3085/user', {
-            withCredentials: true,
-        })
-        .then((res) => {
+    async loadUser({state, commit}) {
+        try {
+            const res = await this.$axios.get('/user', {
+                withCredentials: true,
+            })
+            console.log(res.data);
             commit('setMe', res.data)
-        })
-        .catch(() => {
-
-        })
+            console.log(state)
+        } catch (err) {
+            console.error(err)
+        }
     },
     signUp({commit, state}, payload) {
-        this.$axios.post('http://localhost:3085/user', {
+        this.$axios.post('/user', {
             email: payload.email,
             nickname: payload.nickname,
             password: payload.password
@@ -78,7 +79,7 @@ export const actions = {
         })
     },
     logIn({commit}, payload) {
-        this.$axios.post('http://localhost:3085/user/login', {
+        this.$axios.post('/user/login', {
             email: payload.email,
             password: payload.password
         }, {
@@ -92,7 +93,7 @@ export const actions = {
         })
     },
     logOut({commit}, payload) {
-        this.$axios.post('http://localhost:3085/user/logout', {}, {
+        this.$axios.post('/user/logout', {}, {
             withCredentials: true
         })
         .then((res) => {

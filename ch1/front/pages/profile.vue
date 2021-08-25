@@ -51,8 +51,8 @@ import FollowList from '~/components/FollowList'
       }
     },
     fetch({store}) {
-      store.dispatch('users/loadFollowing')
       store.dispatch('users/loadFollower')
+      return store.dispatch('users/loadFollowing')
     },
     head() {
       return {

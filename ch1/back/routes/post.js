@@ -57,6 +57,10 @@ router.post('/', isLoggedIn, async (req, res, next) => {
                 attributes: ['id', 'nickname']
             }, {
                 model: db.Image,
+            }, {
+                model: db.User,
+                as: 'Likers',
+                attributes: ['id']
             }],
         })
         return res.json(fullPost)
@@ -130,6 +134,90 @@ router.post('/:id/comment', isLoggedIn, async (req, res, next) => {
         next(err)
     }
 
+})
+
+router.post('/:id/retweet', isLoggedIn, async (req, res, next) => {
+    try {
+        const post = await db.Post.findOne({
+            where: { id: req.params.id },
+            includes: [{
+                model: db.Post,
+                as: 'Retweet' //리트윗한 게시물이면 원본 게시물이 됨
+            }]
+        })
+        if(!post) {
+            return res.status(404).send('post is not existing')
+        }
+        if(req.user.id === post.UserId || (post.Retweet && post.Retweet.UserId === req.user.id)) {
+            return res.status(403).send('cannot retweet to your post')
+        }
+        const retweetTargetId = post.RetweetId || post.id;
+        const exPost = await db.Post.findOne({
+            where: {
+                UserId: req.user.id,
+                RetweetId: retweetTargetId
+            },
+        })
+        if(exPost) {
+            return res.status(403).send('already retweet')
+        }
+        const retweet = await db.Post.create({
+            UserId: req.user.id,
+            RetweetId: retweetTargetId,
+            content: 'retweet'
+        })
+        const retweetWithPrevPost = await db.Post.findOne({
+            where: { id: retweet.id },
+            include: [{
+                model: db.User,
+                attributes: ['id', 'nickname']
+            }, {
+                model: db.User,
+                as: 'Likers',
+                attributes: ['id']
+            }, {
+                model: db.Post,
+                as: 'Retweet',
+                include: [{
+                    model: db.User,
+                    attributes: ['id', 'nickname']
+                }, {
+                    model: db.Image
+                }]
+            }]
+        });
+        return res.json(retweetWithPrevPost)
+    } catch (err) {
+        console.error(err)
+    }     
+})
+
+router.post('/:id/Like', isLoggedIn, async (req, res, next) => {
+    try {
+        const post = await db.Post.findOne({ where: { id: req.params.id } })
+        if(!post) {
+            return res.status(404).send('post is not existing')
+        }
+        await post.addLiker(req.user.id);
+        res.json({ userId: req.user.id })
+    } catch (err) {
+        console.error(err)
+        next(err)
+    }
+})
+
+router.delete('/:id/Like', isLoggedIn, async (req, res, next) => {
+    try {
+        const post = await db.Post.findOne({ where: { id: req.params.id } })
+        if(!post) {
+            return res.status(404).send('post is not existing')
+        }
+        await post.removeLiker(req.user.id);
+        res.json({ userId: req.user.id })
+    } catch (err) {
+        console.error(err)
+        next(err)
+    }
 })
 
 module.exports = router;

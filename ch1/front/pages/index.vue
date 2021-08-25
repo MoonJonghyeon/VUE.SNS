@@ -21,8 +21,9 @@ import PostCard from '~/components/PostCard'
       }
     },
     fetch({store}) {
-      store.dispatch('posts/loadPosts')
+      return store.dispatch('posts/loadPosts')
     },
+    
     computed: {
       me() {
         return this.$store.state.users.me
