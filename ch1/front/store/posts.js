@@ -125,6 +125,7 @@ export const actions = {
         })
         .catch((err) => {
             console.error(err)
+            alert(err.response.data)
         })
     },
     unlikePost({commit}, payload) {

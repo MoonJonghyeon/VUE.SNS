@@ -51,8 +51,10 @@ import FollowList from '~/components/FollowList'
       }
     },
     fetch({store}) {
-      store.dispatch('users/loadFollower')
-      return store.dispatch('users/loadFollowing')
+      return Promise.all([
+        store.dispatch('users/loadFollower', { offset: 0 }),
+        store.dispatch('users/loadFollowing', { offset: 0 })
+      ])
     },
     head() {
       return {
@@ -68,11 +70,11 @@ import FollowList from '~/components/FollowList'
           nickname: this.nickname
         })
       },
-      removeFollowing(id) {
-        this.$store.dispatch('users/removeFollowing', { id })
+      removeFollowing(userId) {
+        this.$store.dispatch('users/unFollow', { userId })
       },
-      removeFollower(id) {
-        this.$store.dispatch('users/removeFollower', {id })
+      removeFollower(userId) {
+        this.$store.dispatch('users/removeFollower', { userId })
       },
       loadMoreFollowings() {
         this.$store.dispatch('users/loadFollowing')        

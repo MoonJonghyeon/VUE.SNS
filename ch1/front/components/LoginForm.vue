@@ -29,6 +29,11 @@
             <v-btn @click="onLogOut">
                 로그아웃
             </v-btn>
+            <v-row>
+                <v-col cols="4">{{me.Followings.length}}following</v-col>
+                <v-col cols="4">{{me.Followers.length}}follower</v-col>
+                <v-col cols="4">{{me.Posts.length}}post</v-col>
+            </v-row>
         </v-card>
     </v-container>
 </template>
