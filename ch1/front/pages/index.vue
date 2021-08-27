@@ -21,7 +21,7 @@ import PostCard from '~/components/PostCard'
       }
     },
     fetch({store}) {
-      return store.dispatch('posts/loadPosts')
+      return store.dispatch('posts/loadPosts', { reset: true })
     },
     
     computed: {

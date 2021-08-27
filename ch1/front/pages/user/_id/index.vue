@@ -1,5 +1,15 @@
 <template>
  <v-container>
+   <v-card style="margin-bttom: 20px">
+     <v-container>
+       {{other.nickname}}
+       <v-row>
+         <v-col cols="4">{{other.Followings.length}} Following</v-col>
+         <v-col cols="4">{{other.Followers.length}} Follower</v-col>
+         <v-col cols="4">{{other.Posts.length}} Post</v-col>
+       </v-row>
+     </v-container>
+   </v-card>
   <div>
     <post-card v-for="p in mainPosts" :key="p.id" :post="p" />
   </div>
@@ -17,12 +27,18 @@ import PostCard from '~/components/PostCard'
         name:'Nuxt.js',
       }
     },
-    fetch({store}) {
-      store.dispatch('posts/loadPosts')
+    fetch({store, params}) {
+      store.dispatch('users/loadOther', {
+        userId: params.id,
+      })
+      return store.dispatch('posts/loadUserPosts', {
+        userId: params.id
+      })
     },
+    
     computed: {
-      me() {
-        return this.$store.state.users.me
+      other() {
+        return this.$store.state.users.other
       },
       mainPosts() {
         return this.$store.state.posts.mainPosts

@@ -1,3 +1,6 @@
+import Vue from 'vue';
+import throttle from 'lodash.throttle'
+
 export const state = () => ({
     mainPosts: [],
     hasMorePost: true,
@@ -94,16 +97,17 @@ export const actions = {
 
         })
     },
-    async loadPosts({ commit, state }, payload) {
+    loadPosts: throttle(async function({ commit, state }, payload) {
         if(state.hasMorePost) {
             try {
-            const res = await this.$axios.get(`/posts?offset=${state.mainPosts.length}&limit=10`);
+            const lastPost = state.mainPosts[state.mainPosts.length - 1]
+            const res = await this.$axios.get(`/posts?lastId=${lastPost && lastPost.id}&limit=10`);
             commit('loadPosts', res.data);
             } catch (err) {
             console.error(err);
             }
         }
-    },
+    }, 3000),
     uploadImages({commit}, payload) {
         this.$axios.post('/post/images', payload, {
             withCredentials: true
@@ -157,4 +161,15 @@ export const actions = {
         })
 
     },
+    loadUserPosts: throttle(async function({ commit, state }, payload) {
+        if(state.hasMorePost) {
+            try {
+            const lastPost = state.mainPosts[state.mainPosts.length - 1]
+            const res = await this.$axios.get(`/user/${payload.userId}/posts?lastId=${lastPost && lastPost.id}&limit=10`);
+            commit('loadPosts', res.data);
+            } catch (err) {
+            console.error(err);
+            }
+        }
+    }, 3000),
 }
