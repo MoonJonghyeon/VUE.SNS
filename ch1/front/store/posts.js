@@ -6,8 +6,7 @@ export const state = () => ({
     hasMorePost: true,
     imagePaths: [],
 });
-const totalPosts = 51;
-const limit = 10;
+
 export const mutations = {
     addMainPost(state, payload) {
         state.mainPosts.unshift(payload);
@@ -26,8 +25,12 @@ export const mutations = {
         state.mainPosts[index].Comments.unshift(payload)
     },
     loadPosts(state, payload) {
-        state.mainPosts = state.mainPosts.concat(payload)
-        state.hasMorePost = payload.length === limit;
+        if (payload.reset) {
+            state.mainPosts = payload.data;
+        } else {
+            state.mainPosts = state.mainPosts.concat(payload.data)
+        }
+        state.hasMorePost = payload.data.length === 10;
     },
     concatImagePaths(state, payload) {
         state.imagePaths = state.imagePaths.concat(payload)
@@ -98,15 +101,49 @@ export const actions = {
         })
     },
     loadPosts: throttle(async function({ commit, state }, payload) {
-        if(state.hasMorePost) {
-            try {
-            const lastPost = state.mainPosts[state.mainPosts.length - 1]
-            const res = await this.$axios.get(`/posts?lastId=${lastPost && lastPost.id}&limit=10`);
-            commit('loadPosts', res.data);
-            } catch (err) {
-            console.error(err);
-            }
+        try {
+        if (payload && payload.reset) {
+            const res = await this.$axios.get(`/posts?limit=10`);
+            commit('loadPosts', {
+                data: res.data,
+                reset: true
+            })
+            return;
         }
+            if(state.hasMorePost) {
+                const lastPost = state.mainPosts[state.mainPosts.length - 1]
+                const res = await this.$axios.get(`/posts?lastId=${lastPost && lastPost.id}&limit=10`);
+                commit('loadPosts', {
+                    data: res.data
+                });
+                return;
+            }
+        } catch (err) {
+            console.error(err)
+        }
+    }, 3000),
+    loadUserPosts: throttle(async function({ commit, state }, payload) {
+        try {
+        if (payload && payload.reset) {
+            const res = await this.$axios.get(`/user/${payload.userId}/posts?limit=10`);
+            commit('loadPosts', {
+                data: res.data,
+                reset: true
+            })
+            return;
+        }
+            if(state.hasMorePost) {
+                const lastPost = state.mainPosts[state.mainPosts.length - 1]
+                const res = await this.$axios.get(`/user/${payload.userId}/posts?lastId=${lastPost && lastPost.id}&limit=10`);
+                commit('loadPosts', {
+                    data: res.data,
+                });
+                return;
+            }
+        } catch (err) {
+            console.error(err)
+        }
+        
     }, 3000),
     uploadImages({commit}, payload) {
         this.$axios.post('/post/images', payload, {
@@ -161,15 +198,4 @@ export const actions = {
         })
 
     },
-    loadUserPosts: throttle(async function({ commit, state }, payload) {
-        if(state.hasMorePost) {
-            try {
-            const lastPost = state.mainPosts[state.mainPosts.length - 1]
-            const res = await this.$axios.get(`/user/${payload.userId}/posts?lastId=${lastPost && lastPost.id}&limit=10`);
-            commit('loadPosts', res.data);
-            } catch (err) {
-            console.error(err);
-            }
-        }
-    }, 3000),
 }

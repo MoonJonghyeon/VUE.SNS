@@ -152,7 +152,7 @@ router.post('/:id/follow', isLoggedIn, async (req, res, next) => {
 
 })
 
-router.post('/:id/posts', async (req, res, next) => {
+router.get('/:id/posts', async (req, res, next) => {
     try {
         let where = {
             UserId: parseInt(req.params.id, 10),
@@ -178,6 +178,7 @@ router.post('/:id/posts', async (req, res, next) => {
         res.json(posts)
     } catch (err) {
         console.error(err)
+        next(err)
     }
 
 })

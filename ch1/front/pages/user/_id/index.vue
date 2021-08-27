@@ -32,7 +32,8 @@ import PostCard from '~/components/PostCard'
         userId: params.id,
       })
       return store.dispatch('posts/loadUserPosts', {
-        userId: params.id
+        userId: params.id,
+        reset: true
       })
     },
     
