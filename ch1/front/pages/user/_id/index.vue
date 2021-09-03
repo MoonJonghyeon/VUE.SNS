@@ -28,13 +28,16 @@ import PostCard from '~/components/PostCard'
       }
     },
     fetch({store, params}) {
-      store.dispatch('users/loadOther', {
-        userId: params.id,
-      })
-      return store.dispatch('posts/loadUserPosts', {
+      
+      return Promise.all([
+        store.dispatch('posts/loadUserPosts', {
         userId: params.id,
         reset: true
+      }),
+        store.dispatch('users/loadOther', {
+        userId: params.id,
       })
+      ])
     },
     
     computed: {

@@ -28,8 +28,6 @@ router.post('/images', isLoggedIn, upload.array('image'), (req ,res) => {
 
 router.post('/', isLoggedIn, async (req, res, next) => {
     try {
-        req.body.content,
-        req.body.imagePaths
         const hashtags = req.body.content.match(/#[^\s#]+/g);
         const newPost = await db.Post.create({
             content: req.body.content,
@@ -37,7 +35,7 @@ router.post('/', isLoggedIn, async (req, res, next) => {
         })
         if(hashtags) {
             const result = await Promise.all(hashtags.map(tag => db.Hashtag.findOrCreate({
-                where: { name : tag.slice(1).toLowerCase}
+                where: { name : tag.slice(1).toLowerCase()}
             })))
             await newPost.addHashtags(result.map(r => r[0]));
         }

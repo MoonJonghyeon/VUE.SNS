@@ -17,13 +17,14 @@ import PostCard from '~/components/PostCard'
         name:'Nuxt.js',
       }
     },
-    fetch({store}) {
-      store.dispatch('posts/loadPosts')
+    fetch({store, params}) {
+      return store.dispatch('posts/loadHashtagPosts', {
+        hashtag: encodeURIComponent(params.id),
+        reset: true
+      })
     },
+    
     computed: {
-      me() {
-        return this.$store.state.users.me
-      },
       mainPosts() {
         return this.$store.state.posts.mainPosts
       },
