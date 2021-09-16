@@ -42,10 +42,7 @@ module.exports = {
             console.log('webpack', config, isServer, isClient)
         }
     },
-    Plugin: [],
-    vuetify: {
-        
-    },
+    vuetify: {},
     axios: {
         browserBaseURL: "http://localhost:3085",
         baseURL: "http://localhost:3085",
