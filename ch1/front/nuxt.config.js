@@ -35,7 +35,7 @@ module.exports = {
     },
     build: {
         analyze: false,
-        extend(config, {isServer, isClient, isDev}) {
+        extend(config, {isClient, isServer, isDev}) {
             if (isServer && !isDev) {
                 config.devtool = 'hidden-source-map'
             }
