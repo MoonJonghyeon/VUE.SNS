@@ -9,7 +9,7 @@ const hpp = require('hpp')
 const helmet = require('helmet')
 const dotenv = require('dotenv')
 
-const prod = process.env.NODE_ENV === 'production',
+const prod = process.env.NODE_ENV === 'production'
 const db = require('./models')
 const passportConfig = require('./passport');
 const userRouter = require('./routes/user')
