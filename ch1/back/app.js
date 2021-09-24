@@ -22,8 +22,8 @@ db.sequelize.sync();
 passportConfig();
 
 if (prod) {
-    app.user(helmet())
-    app.user(hpp())
+    app.use(helmet())
+    app.use(hpp())
     app.use(morgan('combined'))
     app.use(cors({
         origin: 'http://vue.nodebird.com',
