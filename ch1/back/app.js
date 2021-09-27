@@ -26,7 +26,7 @@ if (prod) {
     app.use(hpp())
     app.use(morgan('combined'))
     app.use(cors({
-        origin: 'http://vue.nodebird.com',
+        origin: 'http://moonsns.com',
         credentials: true, 
     }))
 } else {
@@ -49,7 +49,7 @@ app.use(session({
     cookie: {
         httpOnly: true,
         secure: false,
-        domain: prod && '.nodebird.com',
+        domain: prod && '.moonsns.com',
     }
 }));
 app.use(passport.initialize());
