@@ -44,8 +44,8 @@ module.exports = {
     },
     vuetify: {},
     axios: {
-        browserBaseURL: process.env.NODE_ENV === "production" ? "http://api.nodebird.com" : "http://localhost:3085",
-        baseURL: process.env.NODE_ENV === "production" ? "http://api.nodebird.com" : "http://localhost:3085",
+        browserBaseURL: process.env.NODE_ENV === "production" ? "http://api.moonsns.com" : "http://localhost:3085",
+        baseURL: process.env.NODE_ENV === "production" ? "http://api.moonsns.com" : "http://localhost:3085",
         https: false,
     },
     server: {
