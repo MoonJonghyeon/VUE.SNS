@@ -17,9 +17,9 @@ module.exports = {
               }, {
                 hid: 'ogtype', property: 'og:type', content: 'website',
               }, {
-                hid: 'ogimage', property: 'og:image', content: 'https://vue.nodebird.com/vue-nodebird.png',
+                hid: 'ogimage', property: 'og:image', content: 'https://moonsns.com/moonsns.png',
               }, {
-                hid: 'ogurl', property: 'og:url', content: 'https://vue.nodebird.com',
+                hid: 'ogurl', property: 'og:url', content: 'https://moonsns.com',
               }],
               link: [{ rel: 'shortcut icon', href: '/d0abc6fe74e616536cf07626699bbc707154249a3890514a43687a85e6b6cc82.png' }]
     },
