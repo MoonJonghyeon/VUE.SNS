@@ -26,7 +26,7 @@ if (prod) {
     app.use(hpp())
     app.use(morgan('combined'))
     app.use(cors({
-        origin: 'http://moonsns.com',
+        origin: 'http://moonsns.xyz',
         credentials: true, 
     }))
 } else {
@@ -49,7 +49,7 @@ app.use(session({
     cookie: {
         httpOnly: true,
         secure: false,
-        domain: prod && '.moonsns.com',
+        domain: prod && '.moonsns.xyz',
     }
 }));
 app.use(passport.initialize());

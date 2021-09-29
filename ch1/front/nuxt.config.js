@@ -17,9 +17,9 @@ module.exports = {
               }, {
                 hid: 'ogtype', property: 'og:type', content: 'website',
               }, {
-                hid: 'ogimage', property: 'og:image', content: 'https://moonsns.com/moonsns.png',
+                hid: 'ogimage', property: 'og:image', content: 'https://moonsns.xyz/moonsns.png',
               }, {
-                hid: 'ogurl', property: 'og:url', content: 'https://moonsns.com',
+                hid: 'ogurl', property: 'og:url', content: 'https://moonsns.xyz',
               }],
               link: [{ rel: 'shortcut icon', href: '/d0abc6fe74e616536cf07626699bbc707154249a3890514a43687a85e6b6cc82.png' }]
     },
@@ -44,8 +44,8 @@ module.exports = {
     },
     vuetify: {},
     axios: {
-        browserBaseURL: process.env.NODE_ENV === "production" ? "http://api.moonsns.com" : "http://localhost:3085",
-        baseURL: process.env.NODE_ENV === "production" ? "http://api.moonsns.com" : "http://localhost:3085",
+        browserBaseURL: process.env.NODE_ENV === "production" ? "http://api.moonsns.xyz" : "http://localhost:3085",
+        baseURL: process.env.NODE_ENV === "production" ? "http://api.moonsns.xyz" : "http://localhost:3085",
         https: false,
     },
     server: {
