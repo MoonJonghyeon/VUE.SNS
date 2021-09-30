@@ -1,7 +1,8 @@
 <template>
   <div v-if="images.length === 0"></div>
   <div v-else-if="images.length === 1">
-      <v-img :src="images[0].src"
+      <v-img 
+      :src="images[0].src"
       contain
       aspect-ratio="2"
       @click="zoomImages"
@@ -9,13 +10,15 @@
       <image-zoom v-if="imageZoomed" :close-model="closeModel" :images="images" />
   </div>
   <div v-else-if="images.length === 2" style="display: flex">
-      <v-img :src="images[0].src"
+      <v-img 
+      :src="images[0].src"
       contain
       aspect-ratio="2"
       style="flex: 1"
       @click="zoomImages"
       />
-      <v-img :src="images[1].src"
+      <v-img 
+      :src="images[1].src"
       contain
       aspect-ratio="2"
       style="flex: 1"
@@ -24,7 +27,8 @@
       <image-zoom v-if="imageZoomed" :close-model="closeModel" :images="images" />
   </div>
   <div v-else-if="images.length > 2" style="display: flex">
-      <v-img :src="images[0].src"
+      <v-img 
+      :src="images[0].src"
       contain
       aspect-ratio="2"
       style="flex: 1"

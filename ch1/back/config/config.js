@@ -1,7 +1,7 @@
 const dotenv = require('dotenv')
 
 dotenv.config();
-console.log(process.env.DB_PASSWORD)
+console.log(process.env.S3_ACCESS_KEY_ID)
 
 module.exports = {
   "development": {
